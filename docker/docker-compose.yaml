@@ -1,0 +1,28 @@
+version: "3.5"
+services:
+  database:
+    image: database1
+    build:
+      context: ../
+      dockerfile: ./docker/database/Dockerfile
+    ports:
+      - "37032:5432"
+  backend:
+    image: backend2
+    build:
+      context: ../
+      dockerfile: ./docker/backend/Dockerfile
+    depends_on:
+      - database
+      - frontend
+    ports:
+      - "37064:6060"
+    restart: on-failure
+
+  frontend:
+    image: frontend1
+    build:
+      context: ../
+      dockerfile: ./docker/frontend/Dockerfile
+    ports:
+      - "37128:8080"
