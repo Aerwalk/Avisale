@@ -36,7 +36,7 @@ postgres не откроет порт для подключения.
 
 
 ### Для запуска проекта ### 
- git clone 
+git clone https://github.com/Aerwalk/Avisale.git
 
 Запустить build.sh
  
